@@ -11,7 +11,8 @@ def home(request):
 
 def new_page(request):
     fulltextarea = request.GET['fulltextarea']
-    listlize = fulltextarea.split('\n')
+    listlize = fulltextarea.split('\r\n')
+    listlize2 = [x for x in listlize if x]
 
     # pattern model
     p_num = re.compile('\d')
@@ -20,8 +21,8 @@ def new_page(request):
     p_ch = re.compile('[a-zA-Z]')
     Totallist = []
 
-    for i in range(len(listlize)):
-        line = listlize[i]
+    for i in range(len(listlize2)):
+        line = listlize2[i]
         result_1 = re.sub('["'"'"'\t\n=#/;\[\]"("")"""""?:$*}a-df-mo-rt-vx-zA-DF-MO-RT-VX-XZ]', ' ', str(line))
         # print(result_1)
         result = result_1.replace('-', ' ').replace('N', ' N ').replace('S', ' S ').replace('n', ' N ').replace('s',
