@@ -3,7 +3,7 @@ from .models import Post
 from django.utils import timezone
 import re
 
-Totallist = []
+
 
 def home(request):
     return render(request, 'blog/post_list.html')
@@ -11,17 +11,18 @@ def home(request):
 
 def new_page(request):
     fulltextarea = request.GET['fulltextarea']
-    listlize = fulltextarea.split('%n')
+    listlize = fulltextarea.split('\n')
 
     # pattern model
     p_num = re.compile('\d')
     p_hi = re.compile('-')
     p_dot = re.compile('.')
     p_ch = re.compile('[a-zA-Z]')
+    Totallist = []
 
     for i in range(len(listlize)):
         line = listlize[i]
-        result_1 = re.sub('["'"'"'\t\n=#/\[\]"("")"""""?:$*}a-df-mo-rt-vx-zA-DF-MO-RT-VX-XZ]', ' ', str(line))
+        result_1 = re.sub('["'"'"'\t\n=#/;\[\]"("")"""""?:$*}a-df-mo-rt-vx-zA-DF-MO-RT-VX-XZ]', ' ', str(line))
         # print(result_1)
         result = result_1.replace('-', ' ').replace('N', ' N ').replace('S', ' S ').replace('n', ' N ').replace('s',
                                                                                                                 ' S ')
@@ -61,11 +62,14 @@ def new_page(request):
             #print(final_result)
 
         else :
-            pass
+            '\n'.join(Totallist)
 
-    '\n'.join(Totallist)
-    data = '<br />'.join(Totallist)
+
+
+        data = '\n'.join(Totallist)
+
     return render(request, 'blog/Converted.html', {'data': data})
+
 
 
 
