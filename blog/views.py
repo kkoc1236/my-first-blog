@@ -5,6 +5,15 @@ import re
 
 
 
+
+def is_number(num):
+    try:
+        float(num)
+        return True #num을 float으로 변환할 수 있는 경우
+    except ValueError: #num을 float으로 변환할 수 없는 경우
+        return False
+
+
 def home(request):
     return render(request, 'blog/post_list.html')
 
@@ -43,27 +52,37 @@ def new_page(request):
         location_s = re.sub('[0-9.-]', '', result_1)
         location_s2 = ' '.join(location_s.split())
         list_location_s = location_s2.split()
-        # print(list_location_s)
 
-        final_result = str(location_num3[0]).zfill(2) + '-' + str(list_location_num_d[1]).zfill(4) + list_location_s[
-            0] + ' ' + str(location_num3[2]).zfill(3) + '-' + str(list_location_num_d[3]).zfill(4) + list_location_s[1]
-        # print(final_result)
+        # print(list_location_s)
+        # print(str(list_location_s[0]).isalpha())
+        # print(is_number(str(location_num3[0])))
+        checkLat = 'N' or 'S'
+        checkLon = 'E' or 'W'
+        def matchingcheck():
+
+            try:
+                bool(is_number(str(location_num3[0])) and is_number(str(list_location_num_d[1])) and str(
+                    list_location_s[0]) == checkLat and is_number(str(location_num3[2])) and is_number(
+                    str(list_location_num_d[3])) and str(list_location_s[1]) == checkLon)
+                return True
+            except IndexError:  # num을 float으로 변환할 수 없는 경우
+                return False
+
+        if matchingcheck() and bool(is_number(str(location_num3[0])) and is_number(str(list_location_num_d[1])) and str(list_location_s[0]) == checkLat and is_number(str(location_num3[2])) and is_number(str(list_location_num_d[3])) and str(list_location_s[1]) == checkLon):
+            final_result = str(location_num3[0]).zfill(2) + '-' + str(list_location_num_d[1]).zfill(4) + \
+                           list_location_s[
+                               0] + ' ' + str(location_num3[2]).zfill(3) + '-' + str(list_location_num_d[3]).zfill(4) + \
+                           list_location_s[1]
+
+            Totallist.append(final_result)
+
+            # print(final_result)
 
         # below code is checking for matching
-        TorF = list(final_result)
-        m = p_num.match(TorF[0]) and p_num.match(TorF[1]) and p_hi.match(TorF[2]) and p_num.match(
-            TorF[3]) and p_num.match(
-            TorF[4]) and p_dot.match(TorF[5]) and p_num.match(TorF[6]) and p_ch.match(TorF[7]) and \
-            p_num.match(TorF[9]) and p_num.match(TorF[10]) and p_num.match(TorF[11]) and p_hi.match(
-            TorF[12]) and p_num.match(TorF[13]) and p_num.match(TorF[14]) and p_dot.match(TorF[15]) and p_num.match(
-            TorF[16]) and p_ch.match(TorF[17])
 
-        if m:
-            Totallist.append(final_result)
-            #print(final_result)
-
-        else :
-            '\n'.join(Totallist)
+        else:
+            Totallist.append(line + "<<------- Couldn't be converted")
+            pass
 
 
 
