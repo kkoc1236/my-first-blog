@@ -31,17 +31,17 @@ div.formtag { border-radius: 5px; background-color: #f2f2f2; padding: 40px; } </
                     <br>
                     <br>
 
-                    <div class="formtag"> <form action={% url 'my_function' %}>
+                    <div class="formtag"> <form action="">
                         Original <br>
                     <textarea name = "fulltextarea" cols = "50" rows = "5"
                               placeholder="Please paste GPS coordinate">
                     </textarea>
                         <input type="submit" value="Converting"><br>
-                        Converted <br>
+                        *** Converted *** <br>
                           </form> </div>
-                    <b>{{ data|linebreaksbr }}
-
-        <div>
+                    <b>{{ data|linebreaksbr }}</b>
+<br><br><br>
+        <div>*** Failed List ***<br>
             {{ Faillist|linebreaksbr }}
         </div>
 
