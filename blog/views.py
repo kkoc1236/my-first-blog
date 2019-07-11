@@ -56,19 +56,20 @@ def new_page(request):
         # print(list_location_s)
         # print(str(list_location_s[0]).isalpha())
         # print(is_number(str(location_num3[0])))
-        checkLat = 'N' or 'S'
-        checkLon = 'E' or 'W'
+
         def matchingcheck():
 
             try:
                 bool(is_number(str(location_num3[0])) and is_number(str(list_location_num_d[1])) and str(
-                    list_location_s[0]) == checkLat and is_number(str(location_num3[2])) and is_number(
-                    str(list_location_num_d[3])) and str(list_location_s[1]) == checkLon)
+                    list_location_s[0]).replace('S', 'N') == 'N' and is_number(str(location_num3[2])) and is_number(
+                    str(list_location_num_d[3])) and str(list_location_s[1]).replace('W', 'E') == 'E')
                 return True
             except IndexError:  # num을 float으로 변환할 수 없는 경우
                 return False
 
-        if matchingcheck() and bool(is_number(str(location_num3[0])) and is_number(str(list_location_num_d[1])) and str(list_location_s[0]) == checkLat and is_number(str(location_num3[2])) and is_number(str(list_location_num_d[3])) and str(list_location_s[1]) == checkLon):
+        if matchingcheck() and bool(is_number(str(location_num3[0])) and is_number(str(list_location_num_d[1])) and str(
+                list_location_s[0]).replace('S', 'N') == 'N' and is_number(str(location_num3[2])) and is_number(
+            str(list_location_num_d[3])) and str(list_location_s[1]).replace('W', 'E') == 'E'):
             final_result = str(location_num3[0]).zfill(2) + '-' + str(list_location_num_d[1]).zfill(4) + \
                            list_location_s[
                                0] + ' ' + str(location_num3[2]).zfill(3) + '-' + str(list_location_num_d[3]).zfill(4) + \
