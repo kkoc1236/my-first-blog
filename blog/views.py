@@ -27,7 +27,7 @@ def new_page(request):
 
     for i in range(len(listlize2)):
         line = listlize2[i]
-        result_1 = re.sub('["'"'"'\t\n=+/;\[\]"("")"""""?_:$\\\/,*}a-df-mo-rt-vx-zA-DF-MO-RT-VX-XZ]', ' ', str(line))
+        result_1 = re.sub('["'"'"'\t\n=+/;\[\]"("")"""""?><_:$\\\/,*}a-df-mo-rt-vx-zA-DF-MO-RT-VX-XZ]', ' ', str(line))
         # print(result_1)
         result = result_1.replace('-', ' ').replace('N', ' N ').replace('S', ' S ').replace('n', ' N ').replace('s', ' S ').replace('W', ' W ').replace('E', ' E ').replace('w', ' W ').replace('e',' E ')
         # print(result_list)
