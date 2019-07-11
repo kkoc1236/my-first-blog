@@ -30,7 +30,10 @@ for i in range(len(listlize)):
     result = result_1.replace('-', ' ').replace('N', ' N ').replace('S', ' S ').replace('n', ' N ').replace('s',
                                                                                                             ' S ')
     result_list = list(result)
-    # print(result_list)
+    print(result)
+    result_a = " ".join(result.split())
+    result_b = result_a.split()
+    print(result_b)
     result2 = re.sub('[a-zA-Z]', '', result)
     location_num = result2.split(' ')
     location_num1 = ' '.join(location_num)
