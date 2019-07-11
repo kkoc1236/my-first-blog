@@ -1,8 +1,8 @@
 
-blank_list = [[], [], [], [], [], []]
+blank_list = [5, 6, 7]
+blank = []
+blank_list2 =blank_list[-4:]
 
-blank_list[0].append('a')
 
 
-
-print(blank_list)
+print(blank_list2)

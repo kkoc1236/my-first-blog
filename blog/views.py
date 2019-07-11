@@ -29,18 +29,19 @@ def new_page(request):
     p_dot = re.compile('.')
     p_ch = re.compile('[a-zA-Z]')
     Totallist = []
+    Faillist = []
 
     for i in range(len(listlize2)):
         line = listlize2[i]
-        result_1 = re.sub('["'"'"'\t\n=+/;\[\]"("")"""""?:/,$*}a-df-mo-rt-vx-zA-DF-MO-RT-VX-XZ]', ' ', str(line))
+        result_1 = re.sub('["'"'"'\t\n=+/;\[\]"("")"""""?:$\\\/,*}a-df-mo-rt-vx-zA-DF-MO-RT-VX-XZ]', ' ', str(line))
         # print(result_1)
-        result = result_1.replace('-', ' ').replace('N', ' N ').replace('S', ' S ').replace('n', ' N ').replace('s',
-                                                                                                                ' S ')
+        result = result_1.replace('-', ' ').replace('N', ' N ').replace('S', ' S ').replace('n', ' N ').replace('s', ' S ').replace('W', ' W ').replace('E', ' E ').replace('w', ' W ').replace('e',' E ')
         # print(result_list)
         result_a = " ".join(result.split())
-        result_b = result_a.split()  #### ['00', '00.0', 'N', '00', '00.0', 'N']
+        result_f = result_a.split()  #### ['00', '00.0', 'N', '00', '00.0', 'N']
+        result_b = result_f[-6:]
         str_result_b = ' '.join(result_b)
-        print('aaa', str_result_b)
+        print('aaa', result_b)
         result2 = re.sub('[a-zA-Z]', '', str_result_b)
         location_num = result2.split(' ')
         location_num1 = ' '.join(location_num)
@@ -63,41 +64,38 @@ def new_page(request):
         def matchingcheck():
 
             try:
-                bool(is_number(str(location_num3[0])) and is_number(str(list_location_num_d[1])) and str(
-                    list_location_s[0]).replace('S', 'N') == 'N' and is_number(str(location_num3[2])) and is_number(
-                    str(list_location_num_d[3])) and str(list_location_s[1]).replace('W', 'E') == 'E')
+                bool(is_number(str(result_b[0])) and is_number(str(result_b[1])) and str(
+                    result_b[2]).replace('S', 'N') == 'N' and is_number(str(result_b[3])) and is_number(
+                    str(result_b[4])) and str(result_b[5]).replace('W', 'E') == 'E')
                 return True
             except IndexError:  # num을 float으로 변환할 수 없는 경우
                 return False
-##########test 시작
-        o = 0
-        while o < len(result_b):
-            o = o + 1
-            read_list = result_b[-o:]
-            print(read_list)
 
-            if matchingcheck():
-                final_result = str(location_num3[0]).zfill(2) + '-' + str(list_location_num_d[1]).zfill(4) + \
-                               list_location_s[
-                                   0] + ' ' + str(location_num3[2]).zfill(3) + '-' + str(list_location_num_d[3]).zfill(
-                    4) + \
-                               list_location_s[1]
+        print('xxx', matchingcheck())
+        if matchingcheck() and bool(is_number(str(result_b[0])) and is_number(str(result_b[1])) and str(
+                result_b[2]).replace('S', 'N') == 'N' and is_number(str(result_b[3])) and is_number(
+            str(result_b[4])) and str(result_b[5]).replace('W', 'E') == 'E'):
+            final_result = str(result_b[0]).zfill(2) + '-' + str(result_b[1]).zfill(4) + \
+                           result_b[
+                               2] + ' ' + str(result_b[3]).zfill(3) + '-' + str(result_b[4]).zfill(4) + \
+                           result_b[5]
 
-                Totallist.append(final_result)
+            Totallist.append(final_result)
 
-                # print(final_result)
+            # print(final_result)
 
-            # below code is checking for matching
+        # below code is checking for matching
 
-            else:
-                Totallist.append(line + "<<------- Couldn't be converted")
-                pass
+        else:
+            Faillist.append(line + "<<------- Couldn't be converted")
+            pass
 
 
 
         data = '\n'.join(Totallist)
+        Faillist_data = '\n'.join(Faillist)
 
-    return render(request, 'blog/post_list.html', {'data': data, 'original':fulltextarea})
+    return render(request, 'blog/post_list.html', {'data': data, 'Faillist':Faillist_data})
 
 
 
