@@ -32,7 +32,7 @@ def new_page(request):
 
     for i in range(len(listlize2)):
         line = listlize2[i]
-        result_1 = re.sub('["'"'"'\t\n=#/;\[\]"("")"""""?:$*}a-df-mo-rt-vx-zA-DF-MO-RT-VX-XZ]', ' ', str(line))
+        result_1 = re.sub('["'"'"'\t\n=+/;\[\]"("")"""""?:$*}a-df-mo-rt-vx-zA-DF-MO-RT-VX-XZ]', ' ', str(line))
         # print(result_1)
         result = result_1.replace('-', ' ').replace('N', ' N ').replace('S', ' S ').replace('n', ' N ').replace('s',
                                                                                                                 ' S ')
@@ -89,7 +89,7 @@ def new_page(request):
 
         data = '\n'.join(Totallist)
 
-    return render(request, 'blog/Converted.html', {'data': data})
+    return render(request, 'blog/post_list.html', {'data': data, 'original':fulltextarea})
 
 
 

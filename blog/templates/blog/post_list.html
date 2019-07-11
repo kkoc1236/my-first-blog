@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
         <title>WNI GPS converter</title>
     </head>
-    <body>
+    <div>
         <div>
             <h1><a href="">Creator: Kim Kwansub with Court Korea</a></h1>
         </div>
@@ -34,13 +34,14 @@ div.formtag { border-radius: 5px; background-color: #f2f2f2; padding: 40px; } </
                     <div class="formtag"> <form action={% url 'my_function' %}>
                         Original <br>
                     <textarea name = "fulltextarea" cols = "50" rows = "5"
-                              placeholder="Please paste GPS coordinate"></textarea>
+                              placeholder="Please paste GPS coordinate">
+                    </textarea>
                         <input type="submit" value="Converting"><br>
                         Converted <br>
                           </form> </div>
-
-
+                    <b>{{ data|linebreaksbr }}
 
         </div>
+
     </body>
 </html>
