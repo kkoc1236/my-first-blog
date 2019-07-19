@@ -28,7 +28,7 @@ def new_page(request):
     for i in range(len(listlize2)):
         line = listlize2[i]
         lineup = line.replace('n', 'N').replace('s', 'S').replace('w', 'W').replace('e', 'E')
-        result_f = re.findall(r"[-+]?\d*\.\d+|\d+|E|W|N|S|e|w|n|s", str(lineup))
+        result_f = re.findall(r"\d*\.\d+|\d+|E|W|N|S|e|w|n|s", str(lineup))
         print(result_f)
 
         result_b = result_f[-6:]
