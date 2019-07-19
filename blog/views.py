@@ -92,6 +92,9 @@ def new_page(request):
 2. Coppy button
 3. 뒤에서부터 읽기 [x:] 개선해 보기
 4. 자동 GC 입력 (일정 NM을 넘겼을시)
+5. result_1 = re.sub('["'"'"'\t\n=+/;\[\]"("")"""""?><_:$\\\/,*}a-df-mo-rt-vx-zA-DF-MO-RT-VX-XZ"属"]', ' ', str(line)) 부분을 
+re.findall(r"[-+]?\d*\.\d+|\d+|E|W|N|S|e|w|n|s", 대상)로 대체 가능할듯..
+6. 반본에서 if문에 break 를 사용하면 반복을 중간에 멈출 수 있다
 '''
 
 
