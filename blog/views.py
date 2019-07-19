@@ -27,7 +27,7 @@ def new_page(request):
 
     for i in range(len(listlize2)):
         line = listlize2[i]
-        result_1 = re.sub('["'"'"'\t\n=+/;\[\]"("")"""""?><_:$\\\/,*}a-df-mo-rt-vx-zA-DF-MO-RT-VX-XZ]', ' ', str(line))
+        result_1 = re.sub('["'"'"'\t\n=+/;\[\]"("")"""""?><_:$\\\/,*}a-df-mo-rt-vx-zA-DF-MO-RT-VX-XZ"属"]', ' ', str(line))
         # print(result_1)
         result = result_1.replace('-', ' ').replace('N', ' N ').replace('S', ' S ').replace('n', ' N ').replace('s', ' S ').replace('W', ' W ').replace('E', ' E ').replace('w', ' W ').replace('e',' E ')
         # print(result_list)
@@ -90,7 +90,8 @@ def new_page(request):
 '''
 1. 분이 60을 넘겼을시 도로 환산하는 계산식이 필요함
 2. Coppy button
-3. 자동 GC 입력 (일정 NM을 넘겼을시)
+3. 뒤에서부터 읽기 [x:] 개선해 보기
+4. 자동 GC 입력 (일정 NM을 넘겼을시)
 '''
 
 
