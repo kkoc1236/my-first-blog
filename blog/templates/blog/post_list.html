@@ -1,49 +1,341 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap-theme.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <meta charset="UTF-8">
-        <title>WNI GPS converter</title>
+<!-- Theme: Keen - The Ultimate Bootstrap Admin ThemeAuthor: KeenThemesWebsite: http://www.keenthemes.com/Contact: support@keenthemes.comFollow: www.twitter.com/keenthemesDribbble: www.dribbble.com/keenthemesLike: www.facebook.com/keenthemesLicense: You must have a valid license purchased only from https://themes.getbootstrap.com/product/keen-the-ultimate-bootstrap-admin-theme/ in order to legally use the theme for your project.-->
+<html lang="en" >
+    <!-- begin::Head -->
+    <head><!--begin::Base Path (base relative path for assets of this page) -->
+        <base href="../"><!--end::Base Path -->
+        <meta charset="utf-8"/>
+        <title>WNI SEA Converter</title>
+        <meta name="description" content="Latest updates and statistic charts">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <!--begin::Fonts -->
+        <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+        <script>            WebFont.load({
+                google: {
+"families":[
+"Poppins:300,400,500,600,700"]},
+                active: function() {
+                    sessionStorage.fonts = true;                }            });        </script>
+        <!--end::Fonts -->
+        <!--begin::Page Vendors Styles(used by this page) -->
+        <link href="./static/vendors/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
+        <!--end::Page Vendors Styles -->
+        <!--begin::Global Theme Styles(used by all pages) -->
+        <link href="./static/vendors/global/vendors.bundle.css" rel="stylesheet" type="text/css" />
+        <link href="./static/css/demo1/style.bundle.css" rel="stylesheet" type="text/css" />
+        <!--end::Global Theme Styles -->
+        <!--begin::Layout Skins(used by all pages) -->
+        <link href="./static/css/demo1/skins/header/base/brand.css" rel="stylesheet" type="text/css" />
+        <link href="./static/css/demo1/skins/header/menu/light.css" rel="stylesheet" type="text/css" />
+        <link href="./static/css/demo1/skins/brand/brand.css" rel="stylesheet" type="text/css" />
+        <link href="./static/css/demo1/skins/aside/light.css" rel="stylesheet" type="text/css" />
+        <!--end::Layout Skins -->
+        <link rel="shortcut icon" href="./static/media/logos/favicon.png" />
+        <!-- Hotjar Tracking Code for keenthemes.com -->
+        <script>            (function(h,o,t,j,a,r){
+                h.hj=h.hj||function(){
+(h.hj.q=h.hj.q||[
+]).push(arguments)};                h._hjSettings={
+hjid:1070954,hjsv:6};                a=o.getElementsByTagName('head')[
+0];                r=o.createElement('script');r.async=1;                r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;                a.appendChild(r);            })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');        </script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-37564768-1"></script>
+        <script>            window.dataLayer = window.dataLayer || [
+];            function gtag(){
+dataLayer.push(arguments);}            gtag('js', new Date());            gtag('config', 'UA-37564768-1');        </script>
     </head>
-    <div>
-        <div>
-            <h1><a href="">Creator: Kim Kwansub with Court Korea</a></h1>
+    <!-- end::Head -->
+    <!-- begin::Body -->
+    <body class="kt-page--loading-enabled kt-page--loading kt-quick-panel--right kt-demo-panel--right kt-offcanvas-panel--right kt-header--fixed kt-header-mobile--fixed kt-subheader--enabled kt-subheader--transparent kt-aside--enabled kt-aside--fixed kt-aside--minimize kt-page--loading" >
+        <!-- begin::Page loader -->
+<div class="kt-page-loader kt-page-loader--logo">
+    <img alt="Logo" src="./static/media/logos/logo-launcher-2.png"/>
+    <div class="kt-spinner kt-spinner--danger"></div>
+</div>
+        <!-- end::Page Loader -->
+
+
+<!-- begin:: Header Mobile -->
+<div id="kt_header_mobile" class="kt-header-mobile kt-header-mobile--fixed " >
+    <div class="kt-header-mobile__logo">
+        <a href="?page=index">
+            <img alt="Logo" src="./static/media/logos/logo-1.png"/>
+        </a>
+    </div>
+    <div class="kt-header-mobile__toolbar">
+        <button class="kt-header-mobile__toolbar-toggler kt-header-mobile__toolbar-toggler--left" id="kt_aside_mobile_toggler"><span></span></button>
+        <button class="kt-header-mobile__toolbar-topbar-toggler" id="kt_header_mobile_topbar_toggler"><i class="flaticon-more"></i></button>
+    </div>
+</div>
+<!-- end:: Header Mobile -->
+
+
+<!-- begin:: Root -->
+<div class="kt-grid kt-grid--hor kt-grid--root">
+    <!-- begin:: Page -->
+    <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver kt-page">
+
+        <!-- begin:: Aside -->
+<button class="kt-aside-close " id="kt_aside_close_btn"><i class="la la-close"></i></button>
+<div class="kt-aside kt-aside--fixed kt-grid__item kt-grid kt-grid--desktop kt-grid--hor-desktop" id="kt_aside">
+
+    <!-- begin::Aside Brand -->
+<div class="kt-aside__brand kt-grid__item " id="kt_aside_brand">
+        <div class="kt-aside__brand-logo">
+            <a href="?page=index">
+                <img alt="Logo" src="./static/media/logos/logo-1.png"/>
+            </a>
         </div>
-
-
-
-                <div>
-
-
-<style> textarea, select {width: 100%;
-padding: 12px 20px; margin: 8px 0; display: inline-block; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;   }
-
-<style> input[type=text], select {
-width: 100%; height: 500px;
-padding: 12px 20px; margin: 8px 0; display: inline-block; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
-
-
-input[type=submit] { width: 30%; background-color: orange; color: white; padding: 14px 20px; margin: 8px 500px; border: none; border-radius: 4px; cursor: pointer; } /* 텍스트 필드 안쪽에 패딩 과 마진을 주었습니다. 배경-색상 속성 (background-color property) 으로 입력 버튼의 배경 색을 지정하였습니다. 그리고 색상 속성 (color property) 으로 글자 색을 지정합니다. */ input[type=submit]:hover { background-color: OrangeRed; } input[type=text]:focus { background-color: lightblue; border: 3px solid #555; } /* 포커스 인풋
-div.formtag { border-radius: 5px; background-color: #f2f2f2; padding: 40px; } </style>
-
-<br>
-                    <br>
-                    <br>
-
-                    <div class="formtag"> <form action={% url 'my_function' %}>
-                        Original <br>
-                    <textarea name = "fulltextarea" cols = "50" rows = "5"
-                              placeholder="Please paste GPS coordinate">
-                    </textarea>
-                        <input type="submit" value="Converting"><br>
-                        *** Converted *** <br>
-                          </form> </div>
-                    <b>{{ data|linebreaksbr }}</b>
-<br><br><br>
-        <div>*** Failed List ***<br>
-            {{ Faillist|linebreaksbr }}
+        <div class="kt-aside__brand-tools">
+            <button class="kt-aside__brand-aside-toggler kt-aside__brand-aside-toggler--left" id="kt_aside_toggler"><span></span></button>
         </div>
+    </div>
+    <!-- end:: Aside Brand -->
 
+
+    <!-- begin:: Aside Menu -->
+<div class="kt-aside-menu-wrapper kt-grid__item kt-grid__item--fluid" id="kt_aside_menu_wrapper">
+    <div id="kt_aside_menu"class="kt-aside-menu "data-ktmenu-vertical="1" data-ktmenu-scroll="1" data-ktmenu-dropdown-timeout="500" >
+        <ul class="kt-menu__nav ">
+            <li class="kt-menu__section ">
+                <h4 class="kt-menu__section-text">
+                    Converting & Sorting
+                </h4>
+                <i class="kt-menu__section-icon flaticon-more-v2"></i> 
+            </li>
+            <li class="kt-menu__item " aria-haspopup="true" >
+                <a href="blog/converter/post_list.html" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-rocket-2"></i><span class="kt-menu__link-text">GPS Converter</span></a>
+            </li>
+            <li class="kt-menu__item " aria-haspopup="true" >
+                    <a target="_blank" href="blog/converter/report.html" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-copy"></i><span class="kt-menu__link-text">Report Sorting</span></a>
+                </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+<!-- end:: Aside Menu -->
+
+
+    <!--[html-partial:include:{"file":"partials\/_aside-footer.html"아직은 필요없음}]/--> 
+
+    
+</div>
+        <!-- end:: Aside -->
+
+        <!-- begin:: Wrapper -->
+        <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor kt-wrapper" id="kt_wrapper">
+
+            <!-- begin:: Header -->
+<div id="kt_header" class="kt-header kt-grid__item kt-header--fixed " >
+    
+        <div></div>
+
+            <!-- begin:: Header Topbar -->
+                    <div class="kt-header__topbar"></div>
+            <!-- end:: Header Topbar -->
+    </div>
+            <!-- end:: Header -->
+            
+            <div class="kt-content kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" id="kt_content">
+                
+
+
+                <!-- begin:: Subheader -->
+                    <!-- Subheader의 경우 나중에 항목이 많아지면 필요해 질 수도 있는 기능 -->
+                <!-- end:: Subheader -->
+
+
+                <!-- begin:: Content -->
+                <div class="kt-container kt-container--fluid kt-grid__item kt-grid__item--fluid">
+                        <style> input[type=text], select {
+                                width: 100%; height: 500px;
+                                padding: 12px 20px; margin: 8px 0; display: inline-block; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+                                
+                                
+                                input[type=submit] { width: 30%; background-color: orange; color: white; padding: 14px 20px; margin: 8px 500px; border: none; border-radius: 4px; cursor: pointer; } /* 텍스트 필드 안쪽에 패딩 과 마진을 주었습니다. 배경-색상 속성 (background-color property) 으로 입력 버튼의 배경 색을 지정하였습니다. 그리고 색상 속성 (color property) 으로 글자 색을 지정합니다. */ input[type=submit]:hover { background-color: OrangeRed; } input[type=text]:focus { background-color: lightblue; border: 3px solid #555; } /* 포커스 인풋
+                                div.formtag { border-radius: 5px; background-color: #f2f2f2; padding: 40px; } </style>
+
+
+                        <div class="row">
+                                <div class="col-xl-6">
+                                    <!--begin::Portlet-->
+                                    <div class="kt-portlet">
+                                        <div class="kt-portlet__head">
+                                            <div class="kt-portlet__head-label">
+                                                <h3 class="kt-portlet__head-title">Original</h3>
+                                            </div>
+                                        </div>
+                                        <div class="kt-portlet__body" style="padding-top: 0px;">
+                                            <!--begin::Section-->
+                                            <div class="kt-section">
+                                                <div class="kt-section__content">
+                                                    <div style="padding: 0px; margin: 10px 0 10px 0; border: 4px solid #efefef" id="kt_blockui_1_content">
+                                                            <form action={% url 'my_function' %}>
+                                                                <textarea name = "fulltextarea" cols = "80" rows = "10"
+                                                                          placeholder="Please paste GPS coordinate"></textarea>
+                                                    </div>
+                            
+                                                    <input type="submit" value="Converting"style="margin-left: 330px;"><br>
+                                                </div>                    
+                                            </div>
+                                            <!--end::Section-->
+                                        </div>
+                                    </div>
+                                    <!--end::Portlet-->
+                                </div>
+                                <div class="col-xl-6">
+                                    <!--begin::Portlet-->
+                                    <div class="kt-portlet" id="kt_blockui_2_portlet">
+                                        <div class="kt-portlet__head">
+                                            <div class="kt-portlet__head-label">
+                                                <h3 class="kt-portlet__head-title"> Converted</h3>
+                                            </div>
+                                        </div>
+                                        <div class="kt-portlet__body" style="padding-top: 1px;padding-bottom: -;padding-bottom: 1px;">
+                                            <!--begin::Section-->
+                                            <div class="kt-section">
+                                                <div class="kt-section__content">
+                                                        <div id="dataclip"><b>{{ data|linebreaksbr }}</b></div>
+
+                                                    <!--<div class="kt-separator kt-separator--border-dashed kt-separator--space-lg"></div>
+
+                                                    버튼나중에 재시도<a href="#" class="btn btn-primary" data-clipboard="true" data-clipboard-target="#dataclip"><i class="la la-cut"></i>  Copy to clipboard</a>-->
+                                                </div>
+                                            </div>
+                                            <!--end::Section-->
+                                        </div>
+                                    </div>
+                                    <!--end::Portlet-->
+                            
+                                    <!--begin::Portlet-->
+                                    <div class="kt-portlet">
+                                        <div class="kt-portlet__head">
+                                            <div class="kt-portlet__head-label">
+                                                <h3 class="kt-portlet__head-title">Failed List</h3>
+                                            </div>
+                                        </div>
+                                        <div class="kt-portlet__body" style="padding-top: 1px;">
+                                            <!--begin::Section-->
+                                            <div class="kt-section">
+                                                <div class="kt-section__content">
+                                                        <b>{{ Faillist|linebreaksbr }}</b>
+                                                </div>                    
+                                            </div>
+                                            <!--end::Section-->
+                                        </div>
+                                    </div>
+                                    <!--end::Portlet-->
+                                </div>
+                            </div>
+
+                </div>
+                <!-- end:: Content -->
+
+            </div>
+
+            <!-- begin:: Footer -->
+            <div class="kt-footer kt-grid__item kt-grid kt-grid--desktop kt-grid--ver-desktop">
+                    <div class="kt-container kt-container--fluid ">
+                        <div class="kt-footer__copyright">2019&nbsp;&copy;&nbsp;Kim Kwansub in Court Korea</div>
+                    </div>
+            </div>
+            <!-- end:: Footer -->
+
+        </div>
+        <!-- end:: Wrapper -->
+    </div>
+    <!-- end:: Page -->
+</div>
+<!-- end:: Root -->
+<!-- begin:: Topbar Offcanvas Panels -->
+
+<!-- begin::Offcanvas Toolbar Quick Actions -->
+<div id="kt_offcanvas_toolbar_quick_actions" class="kt-offcanvas-panel">
+        <div class="kt-offcanvas-panel__head">
+            <h3 class="kt-offcanvas-panel__title">
+                Quick Actions
+            </h3>
+            <a href="#" class="kt-offcanvas-panel__close" id="kt_offcanvas_toolbar_quick_actions_close"><i class="flaticon2-delete"></i></a>
+        </div>
+        <div class="kt-offcanvas-panel__body">
+            <div class="kt-grid-nav-v2">
+                <a href="#" class="kt-grid-nav-v2__item">
+                    <div class="kt-grid-nav-v2__item-icon"><i class="flaticon2-box"></i></div>
+                    <div class="kt-grid-nav-v2__item-title">Orders</div>
+                </a>
+                <a href="#" class="kt-grid-nav-v2__item">
+                    <div class="kt-grid-nav-v2__item-icon"><i class="flaticon-download-1"></i></div>
+                    <div class="kt-grid-nav-v2__item-title">Uploades</div>
+                </a>
+                <a href="#" class="kt-grid-nav-v2__item">
+                    <div class="kt-grid-nav-v2__item-icon"><i class="flaticon2-supermarket"></i></div>
+                    <div class="kt-grid-nav-v2__item-title">Products</div>
+                </a>
+                <a href="#" class="kt-grid-nav-v2__item">
+                    <div class="kt-grid-nav-v2__item-icon"><i class="flaticon2-avatar"></i></div>
+                    <div class="kt-grid-nav-v2__item-title">Customers</div>
+                </a>
+                <a href="#" class="kt-grid-nav-v2__item">
+                    <div class="kt-grid-nav-v2__item-icon"><i class="flaticon2-list"></i></div>
+                    <div class="kt-grid-nav-v2__item-title">Blog Posts</div>
+                </a>
+                <a href="#" class="kt-grid-nav-v2__item">
+                    <div class="kt-grid-nav-v2__item-icon"><i class="flaticon2-settings"></i></div>
+                    <div class="kt-grid-nav-v2__item-title">Settings</div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- end::Offcanvas Toolbar Quick Actions -->
+
+<!-- end:: Topbar Offcanvas Panels -->
+<!-- begin:: Scrolltop -->
+<div id="kt_scrolltop" class="kt-scrolltop"><i class="la la-arrow-up"></i></div>
+<!-- end:: Scrolltop -->
+
+
+
+        <!-- begin::Global Config(global config for global JS sciprts) -->
+        <script>            var KTAppOptions = {
+    "colors": {
+        "state": {
+            "brand": "#5d78ff",
+            "metal": "#c4c5d6",
+            "light": "#ffffff",
+            "accent": "#00c5dc",
+            "primary": "#5867dd",
+            "success": "#34bfa3",
+            "info": "#36a3f7",
+            "warning": "#ffb822",
+            "danger": "#fd3995",
+            "focus": "#9816f4"        },
+        "base": {
+            "label": [
+                "#c5cbe3",
+                "#a1a8c3",
+                "#3d4465",
+                "#3e4466"            ],
+            "shape": [
+                "#f0f3ff",
+                "#d9dffa",
+                "#afb4d4",
+                "#646c9a"            ]        }    }};        </script>
+        <!-- end::Global Config -->
+        <!--begin::Global Theme Bundle(used by all pages) -->
+        <script src="./static/vendors/global/vendors.bundle.js" type="text/javascript"></script>
+        <script src="./static/js/demo1/scripts.bundle.js" type="text/javascript"></script>
+        <!--end::Global Theme Bundle -->
+        <!--begin::Page Vendors(used by this page) -->
+        <script src="./static/vendors/custom/fullcalendar/fullcalendar.bundle.js" type="text/javascript"></script>
+        <!--end::Page Vendors -->
+        <!--begin::Page Scripts(used by this page) -->
+        <script src="./static/js/demo1/pages/dashboard.js" type="text/javascript"></script>
+        <!--end::Page Scripts -->
     </body>
+    <!-- end::Body -->
 </html>
+
+
+<!-- 1.   -->
