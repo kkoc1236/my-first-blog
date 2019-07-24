@@ -33,6 +33,7 @@ def report(request):
         line2 = line.replace('\n', '')
         list_noon = line2.split(':')
         print(list_noon[0])
+        print(line)
         if len(list_noon) > 1:
             index = "".join(re.findall("[a-zA-Z]+", list_noon[0])).upper()
 
@@ -119,9 +120,9 @@ def report(request):
                     ori_index[22] = list_noon[0]
 
 
-            else:
-                Faillist.append(line)
-                pass
+        else:
+            Faillist.append(line)
+            pass
 
     rows = {'rows': {
             'osr_index': [NoonReport[0][0], NoonReport[1][0], NoonReport[2][0], NoonReport[3][0], NoonReport[4][0],
