@@ -86,8 +86,8 @@ def new_page(request):
     return render(request, 'blog/post_list.html', {'data': data, 'Faillist':Faillist_data})
 
 '''
-1. 분이 60을 넘겼을시 도로 환산하는 계산식이 필요함
-2. Coppy button
+1. 분이 60을 넘겼을시 도로 환산하는 계산식이 필요함 latlon 함수 참고
+2. Copy button
 3. 뒤에서부터 읽기 [x:] 개선해 보기
 4. 자동 GC 입력 (일정 NM을 넘겼을시)
 6. 반복에서 if문에 break 를 사용하면 반복을 중간에 멈출 수 있다
