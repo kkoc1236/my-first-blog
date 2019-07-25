@@ -119,22 +119,13 @@ def report(request):
                     NoonReport[22][1] = ''.join(list_noon[1:])
                     ori_index[22] = list_noon[0]
 
+            else:
+                Faillist.append(line)
+
 
         else:
             Faillist.append(line)
             pass
-
-    rows = {'rows': {
-            'osr_index': [NoonReport[0][0], NoonReport[1][0], NoonReport[2][0], NoonReport[3][0], NoonReport[4][0],
-                          NoonReport[5][0], NoonReport[6][0], NoonReport[7][0], NoonReport[8][0], NoonReport[9][0],
-                          NoonReport[10][0], NoonReport[11][0], NoonReport[12][0], NoonReport[13][0], NoonReport[14][0],
-                          NoonReport[15][0], NoonReport[16][0], NoonReport[17][0], NoonReport[18][0], NoonReport[19][0],
-                          NoonReport[20][0], NoonReport[21][0], NoonReport[22][0]],
-            'Data': [NoonReport[0][1], NoonReport[1][1], NoonReport[2][1], NoonReport[3][1], NoonReport[4][1],
-                     NoonReport[5][1], NoonReport[6][1], NoonReport[7][1], NoonReport[8][1], NoonReport[9][1],
-                     NoonReport[10][1], NoonReport[11][1], NoonReport[12][1], NoonReport[13][1], NoonReport[14][1],
-                     NoonReport[15][1], NoonReport[16][1], NoonReport[17][1], NoonReport[18][1], NoonReport[19][1],
-                     NoonReport[20][1], NoonReport[21][1], NoonReport[22][1]]}}
 
     Faillist_data = '\n'.join(Faillist)
 
