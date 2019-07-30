@@ -206,7 +206,7 @@ function copyToClipboard(element) {
                                             <div class="kt-section">
                                                 <div class="kt-section__content">
                                                     <div id="kt_blockui_1_content">
-                                                            <form action={% url 'my_sky_gps' %}>
+                                                            <form method="post" action={% url 'my_sky_gps' %}>{% csrf_token %}
                                                                 <textarea name = "fulltextarea" cols = "85" rows = "10"
                                                                           placeholder="Please paste GPS coordinate"></textarea>
                                                     </div>

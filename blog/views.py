@@ -17,7 +17,7 @@ def home(request):
 
 
 def new_page(request):
-    fulltextarea = request.GET['fulltextarea']
+    fulltextarea = request.POST['fulltextarea']
     listlize = fulltextarea.split('\r\n')
     listlize2 = [x for x in listlize if x]
 

@@ -11,7 +11,7 @@ def home(request):
 
 
 def report(request):
-    fulltextarea = request.GET['fulltextarea']
+    fulltextarea = request.POST['fulltextarea']
     listlize = fulltextarea.split('\r\n')
 
     #print(listlize)
