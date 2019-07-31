@@ -27,10 +27,10 @@ def sky_gps(request):
         if len(list_line) > 8:
             t_list = list_line[:indexing_CLB + 1]
 
-            if len(t_list) is 3 and len(''.join(t_list)) > 11:  # 주어진 리스트 숫자가 딱 맞아 떨어지는 경우
+            if len(t_list) is 3 and len(''.join(t_list)) > 12:  # 주어진 리스트 숫자가 딱 맞아 떨어지는 경우
                 f_list.append(t_list)
 
-            if len(t_list) > 3 and len(''.join(t_list)) > 11:  # 리스트 숫자가 많은경우.. 좀더 연구가 필요 할 것...
+            if len(t_list) > 3 and len(''.join(t_list)) > 12:  # 리스트 숫자가 많은경우.. 좀더 연구가 필요 할 것...
                 latlon = t_list[1] + t_list[2]
                 f2_list = [t_list[0], latlon, t_list[-1]]
                 f_list.append(f2_list)
