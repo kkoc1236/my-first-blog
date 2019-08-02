@@ -80,6 +80,8 @@ dataLayer.push(arguments);}            gtag('js', new Date());            gtag('
         <!-- 윈디 스크립 시작 -->
             <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
     <script src="https://api4.windy.com/assets/libBoot.js"></script>
+
+
   	<style>
   		#windy {
   			width: 100%;
@@ -87,6 +89,10 @@ dataLayer.push(arguments);}            gtag('js', new Date());            gtag('
   		}
   	</style>
         <!-- 윈디 스크립 끝 -->
+
+
+
+
 
     </head>
     <!-- end::Head -->
@@ -204,6 +210,10 @@ dataLayer.push(arguments);}            gtag('js', new Date());            gtag('
         graticule: true,
         latlon: true,
 
+        lat: -35,
+        lon: 20,
+        zoom: 5,
+
 
 
     }
@@ -222,6 +232,7 @@ dataLayer.push(arguments);}            gtag('js', new Date());            gtag('
 
 
 
+
         // Observe the most important broadcasts
         broadcast.on('paramsChanged', params => {
 
@@ -234,6 +245,14 @@ dataLayer.push(arguments);}            gtag('js', new Date());            gtag('
             console.log('Map was rendered:', params )
 
         })
+
+        const { map } = windyAPI
+            L.circle([ -33, 25 ], 1000000, {color : 'red'}).addTo( map ).bindPopup('<a href=#> 화면이동</a>');
+            L.marker([ -35, 20 ], {
+            icon: map.myMarkers.pulsatingIcon
+            }).addTo( map );
+
+
     })
 
 
