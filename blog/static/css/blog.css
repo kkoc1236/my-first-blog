@@ -1,3 +1,14 @@
 h1 a {
     color: #0C419A;
 }
+.comment {
+    margin: 20px 0px 20px 20px;
+}
+
+.box{
+    float:left;
+    margin-right:20px;
+}
+.clear{
+    clear:both;
+}

@@ -61,6 +61,7 @@
         <link href="./static/css/demo1/skins/header/menu/light.css" rel="stylesheet" type="text/css" />
         <link href="./static/css/demo1/skins/brand/brand.css" rel="stylesheet" type="text/css" />
         <link href="./static/css/demo1/skins/aside/light.css" rel="stylesheet" type="text/css" />
+        <link href="./static/css/blog.css" rel="stylesheet">
         <!--end::Layout Skins -->
         <link rel="shortcut icon" href="./static/media/logos/favicon.png" />
         <!-- Hotjar Tracking Code for keenthemes.com -->
@@ -77,33 +78,23 @@ hjid:1070954,hjsv:6};                a=o.getElementsByTagName('head')[
 dataLayer.push(arguments);}            gtag('js', new Date());            gtag('config', 'UA-37564768-1');        </script>
 
 
-        <!-- 윈디 스크립 시작 -->
-            <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
-    <script src="https://api4.windy.com/assets/libBoot.js"></script>
+        <!-- 클립보드 기능-->
+        <script>
 
-
-  	<style>
-  		#windy {
-  			width: 100%;
-  			height: 500px;
-  		}
-  	</style>
-        <!-- 윈디 스크립 끝 -->
-
-
-
-
-
+function copyToClipboard(element) {
+  var text = $(element).clone().find('br').prepend('\r\n').end().text()
+  element = $('<textarea>').appendTo('body').val(text).select()
+  document.execCommand('copy')
+  element.remove()
+}
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <!-- 클립보드 기능끝-->
     </head>
     <!-- end::Head -->
     <!-- begin::Body -->
     <body class="kt-page--loading-enabled kt-page--loading kt-quick-panel--right kt-demo-panel--right kt-offcanvas-panel--right kt-header--fixed kt-header-mobile--fixed kt-subheader--enabled kt-subheader--transparent kt-aside--enabled kt-aside--fixed kt-aside--minimize kt-page--loading" >
-        <!-- begin::Page loader -->
-<div class="kt-page-loader kt-page-loader--logo">
-    <img alt="Logo" src="./static/media/logos/logo-launcher-2.png"/>
-    <div class="kt-spinner kt-spinner--danger"></div>
-</div>
-        <!-- end::Page Loader -->
+
 
 
 
@@ -138,7 +129,7 @@ dataLayer.push(arguments);}            gtag('js', new Date());            gtag('
                 <h4 class="kt-menu__section-text">
                     Converting & Sorting
                 </h4>
-                <i class="kt-menu__section-icon flaticon-more-v2"></i> 
+                <i class="kt-menu__section-icon flaticon-more-v2"></i>
             </li>
             <li class="kt-menu__item " aria-haspopup="true" >
                 <a href="" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-rocket-2"></i><span class="kt-menu__link-text">GPS Converter</span></a>
@@ -153,7 +144,10 @@ dataLayer.push(arguments);}            gtag('js', new Date());            gtag('
     </div>
 <!-- end:: Aside Menu -->
 
-    
+
+    <!--[html-partial:include:{"file":"partials\/_aside-footer.html"아직은 필요없음}]/-->
+
+
 </div>
         <!-- end:: Aside -->
 
@@ -165,124 +159,22 @@ dataLayer.push(arguments);}            gtag('js', new Date());            gtag('
         <img src="./static/media/logos/logo-10.png" width="200"/>
         <p2>Work Smarter, Not Harder </p2>
 
-    
+
         <div></div>
 
             <!-- begin:: Header Topbar -->
                     <div class="kt-header__topbar"></div>
             <!-- end:: Header Topbar -->
     </div>
-            <!-- end:: Header -->
-            
-            <div class="kt-content kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" id="kt_content">
-                
-
-
-                <!-- begin:: Subheader -->
-                    <!-- Subheader의 경우 나중에 항목이 많아지면 필요해 질 수도 있는 기능 -->
-                <!-- end:: Subheader -->
-
-
-                <!-- begin:: Content -->
-                <div class="kt-container kt-container--fluid kt-grid__item kt-grid__item--fluid">
-
-                    <!-- Windy 시작 -->
-                    <div class="row">
-                                <div class="col-xl-12">
-                                    <br>
-                                    <!--begin::Portlet-->
-                                    <div class="kt-portlet">
-                        <div id="windy"></div>
-
-                                        <style>
-        #windy #logo-wrapper #logo {
-            left: -100px;
-        }
-    </style>
-
-    <script>
-
-    const options = {
-        key: 'Blq99plIKpDkj2DTGIGoYQ6QhKnaI9Za',
-
-        // Tip: Use verbose true for nice console output
-        //verbose: true,
-        graticule: true,
-        latlon: true,
-
-        lat: -35,
-        lon: 20,
-        zoom: 5,
-
-
-
-    }
-
-    windyInit( options, windyAPI => {
-
-        const { store, broadcast } = windyAPI
-        // broadcast is main Windy's event emmiter that
-        // let you know what is happening inside
-
-        // Change overlays programatically
-        var overlays = ['wind']
-        , i = 0
-
-        W.store.set('lang', 'en'),
 
 
 
 
-        // Observe the most important broadcasts
-        broadcast.on('paramsChanged', params => {
-
-            console.log('Params changed:', params )
-
-        })
-
-        broadcast.on('redrawFinished', params => {
-
-            console.log('Map was rendered:', params )
-
-        })
-
-        const { map } = windyAPI
-            L.circle([ -33, 25 ], 1000000, {color : 'red'}).addTo( map ).bindPopup('<a href=#> 화면이동</a>');
-            L.marker([ -35, 20 ], {
-            icon: map.myMarkers.pulsatingIcon
-            }).addTo( map );
+<div class="box"><iframe src="/rcc1" frameborder="0" scrolling="no" width="100%" height="512" align="left"> </iframe> </div>
+<div class="box"><iframe src="/rcc/rcc2" frameborder="0" scrolling="yes" width="100%" height="700" align="right" name="no1"></iframe></div>
+<div class="clear"></div>
 
 
-    })
-
-
-
-
-    </script>
-       <!-- Windy 끝 -->
-
-</div>
-                                    </div>
-                        </div>
-
-                </div>
-                <!-- end:: Content -->
-            </div>
-
-            <!-- begin:: Footer -->
-            <div class="kt-footer kt-grid__item kt-grid kt-grid--desktop kt-grid--ver-desktop">
-                    <div class="kt-container kt-container--fluid ">
-                        <div class="kt-footer__copyright">2019&nbsp;&copy;&nbsp;Kim Kwansub in Court Korea</div>
-                    </div>
-            </div>
-            <!-- end:: Footer -->
-
-        </div>
-        <!-- end:: Wrapper -->
-    </div>
-    <!-- end:: Page -->
-</div>
-<!-- end:: Root -->
 
 <!-- begin:: Scrolltop -->
 <div id="kt_scrolltop" class="kt-scrolltop"><i class="la la-arrow-up"></i></div>
@@ -333,4 +225,4 @@ dataLayer.push(arguments);}            gtag('js', new Date());            gtag('
 </html>
 
 
-<!-- 1.   -->
+

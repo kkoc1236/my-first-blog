@@ -3,15 +3,10 @@ import re
 
 
 def home(request):
-    return render(request, 'blog/rcc.html')
-
-def comment1(request):
-    return render(request, 'blog/rcc/comment1.html')
-def comment2(request):
-    return render(request, 'blog/rcc/comment2.html')
+    return render(request, 'blog/rcc/rcc2.html')
 
 
-def rcc(request):
+def rcc2(request):
     fulltextarea = request.POST['fulltextarea']
     listlize = fulltextarea.split('\r\n')
     listlize2 = [x for x in listlize if x]
@@ -70,7 +65,7 @@ def rcc(request):
     Faillist_data = '\n'.join(Filteredlist)
 
 
-    return render(request, 'blog/rcc.html', {'data': data, 'Filteredlist':Faillist_data})
+    return render(request, 'blog/rcc2.html', {'data': data, 'Filteredlist':Faillist_data})
 
 
 '''
