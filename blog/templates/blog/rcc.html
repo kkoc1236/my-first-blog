@@ -77,19 +77,39 @@ hjid:1070954,hjsv:6};                a=o.getElementsByTagName('head')[
 ];            function gtag(){
 dataLayer.push(arguments);}            gtag('js', new Date());            gtag('config', 'UA-37564768-1');        </script>
 
+        <!-- 프레임 좌우 나누기 시작-->
+<style>
 
-        <!-- 클립보드 기능-->
-        <script>
+        #left {
+            float: left;
+            width: 50%;
+            background: #ffffff;
+            height: 100%;
+        }
+        #right {
+            width: 50%; /* This is the default */
+            float: none;
+            margin-left: 0px;
+            background: #ffffff;
+            height: 100%;
+        }
+    </style>
+        <!-- 프레임 좌우 나누기 끝 -->
 
-function copyToClipboard(element) {
-  var text = $(element).clone().find('br').prepend('\r\n').end().text()
-  element = $('<textarea>').appendTo('body').val(text).select()
-  document.execCommand('copy')
-  element.remove()
-}
-</script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-        <!-- 클립보드 기능끝-->
+ <!-- 윈디 스크립 시작 -->
+            <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+    <script src="https://api4.windy.com/assets/libBoot.js"></script>
+
+
+  	<style>
+  		#windy {
+  			width: 100%;
+  			height: 800px;
+  		}
+  	</style>
+        <!-- 윈디 스크립 끝 -->
+
+
     </head>
     <!-- end::Head -->
     <!-- begin::Body -->
@@ -152,7 +172,6 @@ function copyToClipboard(element) {
         <!-- end:: Aside -->
 
         <!-- begin:: Wrapper -->
-        <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor kt-wrapper" id="kt_wrapper">
 
             <!-- begin:: Header -->
 <div id="kt_header" class="kt-header kt-grid__item kt-header--fixed " >
@@ -170,9 +189,83 @@ function copyToClipboard(element) {
 
 
 
-<div class="box"><iframe src="/rcc1" frameborder="0" scrolling="no" width="100%" height="512" align="left"> </iframe> </div>
-<div class="box"><iframe src="/rcc/rcc2" frameborder="0" scrolling="yes" width="100%" height="700" align="right" name="no1"></iframe></div>
-<div class="clear"></div>
+
+<div id="left"style="padding-top: 10px;">
+
+      <div id="windy"></div>
+
+                                        <style>
+        #windy #logo-wrapper #logo {
+            left: -100px;
+        }
+    </style>
+
+    <script>
+
+    const options = {
+        key: 'Blq99plIKpDkj2DTGIGoYQ6QhKnaI9Za',
+
+        // Tip: Use verbose true for nice console output
+        //verbose: true,
+        graticule: true,
+        latlon: true,
+
+        lat: -35,
+        lon: 20,
+        zoom: 5,
+
+
+
+    }
+
+    windyInit( options, windyAPI => {
+
+        const { store, broadcast } = windyAPI
+        // broadcast is main Windy's event emmiter that
+        // let you know what is happening inside
+
+        // Change overlays programatically
+        var overlays = ['wind']
+        , i = 0
+
+        W.store.set('lang', 'en'),
+
+
+
+
+        // Observe the most important broadcasts
+        broadcast.on('paramsChanged', params => {
+
+            console.log('Params changed:', params )
+
+        })
+
+        broadcast.on('redrawFinished', params => {
+
+            console.log('Map was rendered:', params )
+
+        })
+
+        const { map } = windyAPI
+            L.circle([ -33, 25 ], 1000000, {color : 'red'}).addTo( map ).bindPopup('<b><a href="/rcc/rcc2#location123"target = "no1"> RC Comment</a><br>South Africa</b>');
+            L.marker([ -35, 20 ], {
+            icon: map.myMarkers.pulsatingIcon
+            }).addTo( map );
+
+
+    })
+
+
+
+
+    </script>
+
+</div>
+<div id="right" style="padding-top: 10px;">
+    <iframe src="/rcc/rcc2" frameborder="0" scrolling="yes" width="100%" height="800" align="right" name="no1"></iframe>
+</div>
+
+
 
 
 
