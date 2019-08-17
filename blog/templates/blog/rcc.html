@@ -157,6 +157,9 @@ dataLayer.push(arguments);}            gtag('js', new Date());            gtag('
             <li class="kt-menu__item " aria-haspopup="true" >
                     <a href="report" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-copy"></i><span class="kt-menu__link-text">Report Sorting</span></a>
                 </li>
+            <li class="kt-menu__item " aria-haspopup="true" >
+                    <a href="rcc" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-users-1"></i><span class="kt-menu__link-text">RC Comments</span></a>
+                </li>
                     </ul>
                 </div>
             </li>
@@ -190,9 +193,9 @@ dataLayer.push(arguments);}            gtag('js', new Date());            gtag('
 
 
 
-<div id="left"style="padding-top: 10px;">
+<div id="left"style="padding-top: 20px;">
 
-      <div id="windy"></div>
+      <div id="windy" class="free-model" style="left: auto; margin-left: 60px; width: 95%;"></div>
 
                                         <style>
         #windy #logo-wrapper #logo {
@@ -210,9 +213,9 @@ dataLayer.push(arguments);}            gtag('js', new Date());            gtag('
         graticule: true,
         latlon: true,
 
-        lat: -35,
-        lon: 20,
-        zoom: 5,
+        lat: 10,
+        lon: 135,
+        zoom: 2,
 
 
 
@@ -247,8 +250,13 @@ dataLayer.push(arguments);}            gtag('js', new Date());            gtag('
         })
 
         const { map } = windyAPI
+                L.popup()
+        .setLatLng([35.65, 140.03])
+        .setContent('<b>Let&#39;s share your good RC comments!')
+        .openOn(map);
             L.circle([ -33, 25 ], 1000000, {color : 'red'}).addTo( map ).bindPopup('<b><a href="/rcc/rcc2#location123"target = "no1"> RC Comment</a><br>South Africa</b>');
-            L.marker([ -35, 20 ], {
+            L.circle([ 24.69, 130.49 ], 1000000, {color : 'red'}).addTo( map ).bindPopup('<b><a href="/rcc/rcc2#location1"target = "no1"> RC Comment</a><br>West Pacific</b>');
+            L.marker([ 35.65, 140.03 ], {
             icon: map.myMarkers.pulsatingIcon
             }).addTo( map );
 

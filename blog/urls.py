@@ -20,8 +20,7 @@ urlpatterns = [
     path('rcc1/rcc1',  views_rcc1.rcc1,  name="my_rcc1"),
     path('rcc/rcc2', views_rcc2.home),
     path('rcc/rcc2/rcc2',  views_rcc2.rcc2,  name="my_rcc2"),
-    path('rcc/comment1', views_rcc.comment1),
-    path('rcc/comment2', views_rcc.comment2),
+    path('rcc/comment0', views_rcc.comment0), path('rcc/comment1', views_rcc.comment1), path('rcc/comment2', views_rcc.comment2),
 
 
 ]

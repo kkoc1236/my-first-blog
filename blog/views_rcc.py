@@ -4,7 +4,8 @@ import re
 
 def home(request):
     return render(request, 'blog/rcc.html')
-
+def comment0(request):
+    return render(request, 'blog/rcc/comment0.html')
 def comment1(request):
     return render(request, 'blog/rcc/comment1.html')
 def comment2(request):
