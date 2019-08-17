@@ -10,6 +10,26 @@ def comment1(request):
     return render(request, 'blog/rcc/comment1.html')
 def comment2(request):
     return render(request, 'blog/rcc/comment2.html')
+def comment3(request):
+    return render(request, 'blog/rcc/comment3.html')
+def comment4(request):
+    return render(request, 'blog/rcc/comment4.html')
+def comment5(request):
+    return render(request, 'blog/rcc/comment5.html')
+def comment6(request):
+    return render(request, 'blog/rcc/comment6.html')
+def comment7(request):
+    return render(request, 'blog/rcc/comment7.html')
+def comment8(request):
+    return render(request, 'blog/rcc/comment8.html')
+def comment9(request):
+    return render(request, 'blog/rcc/comment9.html')
+def comment10(request):
+    return render(request, 'blog/rcc/comment10.html')
+def comment11(request):
+    return render(request, 'blog/rcc/comment11.html')
+def comment12(request):
+    return render(request, 'blog/rcc/comment12.html')
 
 
 def rcc(request):
