@@ -27,7 +27,7 @@ def new_page(request):
 
     for i in range(len(listlize2)):
         line = listlize2[i]
-        lineup = line.replace('n', 'N').replace('s', 'S').replace('w', 'W').replace('e', 'E')
+        lineup = line.replace('n', 'N').replace('s', 'S').replace('w', 'W').replace('e', 'E').replace('lat', '').replace('Lat', '').replace('LAT', '').replace('long', '').replace('Long', '').replace('LONG', '').replace('tude', '').replace('TUDE', '')
         result_f = re.findall(r"\d*\.\d+|\d+|E|W|N|S|e|w|n|s", str(lineup))
         print(result_f)
 
