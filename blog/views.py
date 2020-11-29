@@ -85,6 +85,15 @@ def new_page(request):
 
     return render(request, 'blog/post_list.html', {'data': data, 'Faillist':Faillist_data})
 
+def error400(request):
+    return render(request, "400.html", status=400)
+
+def error404(request):
+    return render(request, "404.html", status=404)
+
+def error500(request):
+    return render(request, "500.html", status=500)
+
 '''
 1. 분이 60을 넘겼을시 도로 환산하는 계산식이 필요함 latlon 함수 참고
 2. Copy button

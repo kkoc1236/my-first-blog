@@ -1,4 +1,5 @@
 from django.urls import path
+from django.conf.urls import url, handler404
 from . import views
 from . import views_report
 from . import views_sky_gps
@@ -8,6 +9,11 @@ from . import views_rcc2
 from . import xml_file_extractor
 
 from django.shortcuts import render, get_object_or_404
+
+handler400 = "kkoc1236.views.error400"
+handler404 = "kkoc1236.views.error404"
+handler500 = "kkoc1236.views.wrong file"
+
 urlpatterns = [
     path('', views.home),
     path('newpage/',  views.new_page,  name="my_function"),
